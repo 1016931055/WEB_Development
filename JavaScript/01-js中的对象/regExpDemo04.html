@@ -1,0 +1,38 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+      js中的正则对象RegExp讲解
+      1.在js中创建正则有两种方式：
+        1）new RegExp("^正则符号$");
+        2）/^正则符号$/; 建议使用
+      2.RegExp正则对象中的验证函数
+      test(被验证的字符串) 如果被验证的字符串满足正则对象中的表达式则test函数返回true，否则返回false
+     */
+    //需求：验证指定字符串长度是否是6
+    //1.创建正则对象
+    // let reg = new RegExp("^.{6}$");
+    let reg = /^.{6}$/;
+    //2.使用正则的对下调用验证的函数test
+    let boo = reg.test("abcde");
+    //3.判断
+    if(boo){
+      console.log("校验通过");
+    }else{
+      console.log("校验失败");
+    }
+</script>
+</body>
+</html>

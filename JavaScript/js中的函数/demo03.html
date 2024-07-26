@@ -1,0 +1,68 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+      js中的函数：注意事项：
+        1.匿名函数还可以作为另一个函数的参数传递
+        2.在js中没有函数重载概念，如果存在函数名一样的函数，后出现的函数就会覆盖之前的函数名
+        3.在js中调用无参函数可以传递实参；调用有参函数可以不传递实参
+     */
+    // function fn(x){
+    //     /*
+    //      * x=function(){
+    //                 console.log("匿名函数作为参数传递");
+    //             }
+    //      * /
+
+    //     console.log("fn.....");
+    //     //调用函数x
+    //     x();
+        
+    // }
+    //调用fn函数 
+    // 1.匿名函数还可以作为另一个函数的参数传递
+    // fn(function(){
+    //     console.log("匿名函数作为参数传递");
+    // });
+    
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    // 2.在js中没有函数重载概念，如果存在函数名一样的函数，后出现的函数就会覆盖之前的函数名
+
+    function fn2(){
+        console.log("fn2......");
+    }
+
+    function fn2(a,b){//let a;
+        console.log("fn2......"+a+b);
+    }
+    //调用函数
+    // fn2(10,20);
+    fn2();//fn2......undefinedundefined
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    //3.在js中调用无参函数可以传递实参；调用有参函数可以不传递实参.数据没有丢失会放到js的一个内置数组对象中 arguments
+    function fn3(){//let arguments =[10,1.2];
+        console.log("fn3.....");
+        //遍历数组
+        for(let i=0;i<arguments.length;i++){
+            console.log(arguments[i]);
+        }
+    }
+    fn3(10,1.2);
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+<body>
+  <script type="text/javascript">
+      /*
+        js中的函数：
+        定义格式
+        function 函数名(参数列表){
+          函数体
+        }
+       */
+      function fn(){
+        console.log("fn....");
+      }
+
+     //调用函数 ：函数名(实参,....);TODO:函数必须被调用才能执行
+     fn();
+
+     //定义函数
+     function add(a,b){
+        console.log(a+"---"+b);
+        //返回
+        return a+b;
+     }
+
+     function myfunc(i){
+      let sum = 0;
+        for (let index = 0; index < i; index++) {
+          sum += index;
+        }
+        return sum;
+     }
+
+     let sum2 = myfunc(10);
+     window.alert("sum2 = "+sum2);
+     console.log(sum2);
+
+     //调用add函数
+     let sum = add(10,20);
+     console.log(sum);
+     window.alert(sum);
+
+     // 递归函数
+     function factorial(i){
+      if(i != 1)
+        return i*factorial(i-1)
+      else
+        return 1;
+    }
+    window.alert("阶乘i的值为:"+factorial(6))
+  </script>
+</body>
+</html>

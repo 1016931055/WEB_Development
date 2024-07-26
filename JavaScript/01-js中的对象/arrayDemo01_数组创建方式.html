@@ -1,0 +1,50 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+      创建数组对象方式一：采用Array方式
+     */
+    let arr = new Array(1,2,1.2,"哈哈");
+    //遍历数组
+    //使用增强for
+    // for(let x of arr){//x表示数组的数据
+    //     console.log(x);
+    // }
+
+    //1.采用方式一即上述方式定义数组注意：如果只给一个number类型的值，那么此时数值表示数组长度，数组中的数据都是empty
+    let arr1=new Array(10);
+    // console.log(arr1.length);//10  
+   
+    //2.采用方式一即上述方式定义数组注意：如果只给一个number类型的值，那么此时数值表示数组长度，要求不能给小数，数组长度不能是小数
+    // let arr2=new Array(3.14);
+    // console.log(arr2.length);
+   
+    //3.采用方式一即上述方式定义数组注意：如果只给一个非number类型的值， 那么此时数值表示数组的元素
+    let arr3=new Array("锁哥");
+    // console.log(arr3.length);//长度是1   数据是 ['锁哥']
+
+    //4.js中的数组长度是可变的
+    let arr4=new Array(10,20,1.2,"柳岩");//数组长度是4  
+    //给索引是7的位置添加数据
+    arr4[7]="牛";//7表示索引   数据： [10, 20, 1.2, '柳岩', empty × 3, '牛']  长度变为8
+
+
+    let arr5=new Array(10,20,1.2,"柳岩");//数组长度是4  
+    //更改长度
+    arr5.length=2;//[10, 20]
+
+</script>
+</body>
+</html>

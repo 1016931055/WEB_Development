@@ -1,0 +1,65 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>Title</title>
+</head>
+<body>
+<img id="light" src="imgs/off.gif"> <br>
+
+<div class="cls">传智教育</div>
+<br>
+<div class="cls">黑马程序员</div>
+<br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<br>
+
+<script>
+     //1. getElementById：根据id属性值获取，返回一个Element对象
+     let objImg = document.getElementById("light");//<img id="light" src="imgs/off.gif">
+    // 修改图片地址变为imgs/on.gif
+    /*
+        TODO:objImg表示<img id="light" src="imgs/off.gif">对象，img标签所属Image 对象，因此这里我们可以使用objImg调用Image 对象中的属性或者函数
+            Image对象的属性：src	设置或返回图像的 URL。
+    */
+    objImg.src="imgs/on.gif";
+
+    //2. getElementsByTagName：根据标签名称获取，返回Element对象数组
+    let divs = document.getElementsByTagName("div");
+    /*
+        style:设置元素css样式
+        innerHTML：设置元素内容
+    */
+
+    for (let i = 0; i < divs.length; i++) {
+      //获取div标签对象
+      let objDiv = divs[i];//objDiv表示<div class="cls">传智教育</div>所属Div
+      //设置字体颜色为红色 标签对象.style	设置或返回元素的 style 属性。
+      objDiv.style.color="red";//标签对象.style.css样式名 = "样式值"
+	  //更改文本 ：传智大学  标签对象.innerHTML	设置或返回元素的文本内容。
+      objDiv.innerHTML="传智大学";
+    }
+
+    //3. getElementsByName：根据name属性值获取，返回Element对象数组
+    let hobbys = document.getElementsByName("hobby");
+    for (let i = 0; i < hobbys.length; i++) {
+        //获取每个复选框标签对象
+        let objHobby = hobbys[i];//objHobby所属对象Checkbox 对象
+        //设置复选框被选中 ==>Checkbox 对象 checked	属性表示设置或返回 checkbox 是否应被选中。
+        //checked属性值是true表示被选中，值是false表示不被选中
+        objHobby.checked=true;
+    }
+
+</script>
+</body>
+</html>

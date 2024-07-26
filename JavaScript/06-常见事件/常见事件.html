@@ -1,0 +1,60 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>Title</title>
+    <script>
+        //需求：给form表单绑定提交事件，然后将数据提交到后台服务器
+        /*
+            TODO:如果输入框输入值则可以提交表单，如果输入框没有输入值不能提交表单
+        */
+       //1.给上述表单绑定提交事件
+       //null
+       /*
+            TODO:如果将获取form标签的js代码放到form标签上面，那么js引擎在执行js代码的时候例如：
+            document.getElementById("register") 由于浏览器还没有将form标签加载到内存中，因此这行代码
+            document.getElementById("register")是获取不到form标签的
+            TODO:解决问题：我们可以先让浏览器加载下面的html标签，然后回来在执行下面的js代码即可
+            可以将操作html标签的js代码放到onload时间绑定的函数中即可
+       */
+      window.onload=function(){
+            //当整个页面的html 图片 css都执行完在执行该函数体代码
+            console.log(document.getElementById("register"));
+            document.getElementById("register").onsubmit=function(){
+                    //alert("表单提交了");
+                    //2.获取输入框输入的值
+                    //document.getElementById("username") 获取的是标签对象<input type="text" name="username" id="username"/>
+                    let usernameValue = document.getElementById("username").value;
+                    //3.判断usernameValue是否是空字符
+                    if(usernameValue === "" || usernameValue === ''){
+                        //不能提交表单 TODO:对于onsubmit事件来说，如果可以提交表单，那么绑定的匿名函数返回true(默认的)，反之返回false
+                        return false;
+                    }else{
+                        //可以提交表单
+                        return true;
+                    }
+            }
+      }
+      
+    
+    </script>
+</head>
+<body>
+
+<form id="register" action="#">
+    <input type="text" name="username" id="username"/>
+
+    <input type="submit" value="提交">
+</form>
+
+
+
+</body>
+</html>

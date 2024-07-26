@@ -1,0 +1,53 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>Title</title>
+</head>
+<body>
+<img id="light" src="imgs/off.gif"> <br>
+
+<div class="cls">传智教育</div>   <br>
+<div class="cls">黑马程序员</div> <br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<br>
+
+<script>
+    /*
+    获取：使用Document对象的方法来获取
+        * getElementById：根据id属性值获取，返回一个Element对象
+        * getElementsByTagName：根据标签名称获取，返回Element对象数组
+        * getElementsByName：根据name属性值获取，返回Element对象数组
+        * getElementsByClassName：根据class属性值获取，返回Element对象数组
+
+     */
+    //1. getElementById：根据id属性值获取，返回一个Element对象
+    //获取img标签：<img id="light" src="imgs/off.gif">
+    let oImg = document.getElementById("light");//参数light表示img标签的id属性值 oImg 就是<img id="light" src="imgs/off.gif">标签对象
+    console.log(oImg);
+
+    //2. getElementsByTagName：根据标签名称获取，返回Element对象数组
+    //获取上述所有的div标签
+    let arrDivs = document.getElementsByTagName("div");//参数div表示标签名
+    
+    //3. getElementsByName：根据name属性值获取，返回Element对象数组
+    //获取上述所有的name属性值是hobby的标签
+    let arrNames = document.getElementsByName("hobby");//参数hobby是上述标签<input type="checkbox" name="hobby"> 的name属性值
+   
+    //4. getElementsByClassName：根据class属性值获取，返回Element对象数组
+    //获取class是cls的标签
+    let arrCls = document.getElementsByClassName("cls");//参数cls是标签<div class="cls">传智教育</div> 的class属性值
+
+</script>
+</body>
+</html>

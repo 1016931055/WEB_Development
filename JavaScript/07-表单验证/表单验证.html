@@ -1,0 +1,142 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>欢迎注册</title>
+    <link href="css/register.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="form-div">
+    <div class="reg-content">
+        <h1>欢迎注册</h1>
+        <span>已有帐号？</span> <a href="#">登录</a>
+    </div>
+    <form id="reg-form" action="#" method="get">
+
+        <table>
+
+            <tr>
+                <td>用户名</td>
+                <td class="inputs">
+<!--                    <input name="username" type="text" id="username" onblur="checkUsername()">-->
+                    <!-- TODO:给下面的用户名输入框绑定一个离焦事件，鼠标离开输入框焦点就调用函数checkUsername() -->
+                    <input name="username" type="text" id="username" onblur="checkUsername()">
+                    <br>
+                    <!--display: none 属于css语法，表示隐藏标签  -->
+                    <span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>密码</td>
+                <td class="inputs">
+                    <input name="password" type="password" id="password" onblur="checkPassword()">
+                    <br>
+                    <span id="password_err" class="err_msg" style="display: none">密码格式有误</span>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>手机号</td>
+                <td class="inputs"><input name="tel" type="text" id="tel" onblur="checkTel()">
+                    <br>
+                    <span id="tel_err" class="err_msg" style="display: none">手机号格式有误</span>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="buttons">
+            <input value="注 册" type="submit" id="reg_btn">
+        </div>
+        <br class="clear">
+    </form>
+
+</div>
+<script>
+
+    //1. 验证 用户名是否符合规则：长度 6~12,单词字符组成
+    function checkUsername(){
+       //1.1 获取用户名输入框输入的值
+       let usernameValue = document.getElementById("username").value;
+       //1.2 创建正则对象 new RegExp("\\w"); 
+       //单词字符 : \w
+       let reg=/^\w{6,12}$/;
+       //1.3判断输入的值是否满足正则  正则对象.test(被验证的字符串)
+       if(reg.test(usernameValue)){
+            //1.4被验证的字符串满足正则即合法
+            //隐藏<span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>显示出来
+            document.getElementById("username_err").style.display="none";
+            //提交表单
+            return true;
+       }else{
+            //被验证的字符串满足不正则即非法，这里需要将标签 
+            // <span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>显示出来
+            //js操作css样式：标签对象.style.样式名 = 样式值
+            document.getElementById("username_err").style.display="block";
+            //阻止表单提交
+            return false;
+       }
+    }
+
+    //2. 验证 密码是否符合规则:长度 6~12任意字符
+    function checkPassword(){
+        //2.1 获取密码框的值
+        let passwordValue = document.getElementById("password").value;
+        //2.2创建正则对象
+        let reg=/^.{6,12}$/;
+        //2.3判断密码框的值是否满足正则
+        if(reg.test(passwordValue)){
+            //2.4满足正则，隐藏span标签
+            document.getElementById("password_err").style.display="none";
+            //2.5可以提交表单
+            return true;
+        }else{
+            //2.6不满足正则，显示span标签
+            document.getElementById("password_err").style.display="block";
+            //2.7不可以提交表单
+            return false;
+        }
+    }
+
+
+    //3. 验证 手机号是否符合规则：长度 11，数字组成，第一位是1
+    function checkTel(){
+        //3.1 获取手机号输入框的值
+        let telValue = document.getElementById("tel").value;
+        //3.2创建正则对象 \d 表示[0-9]   \d{9} 这里表示从第三位开始正好出现9次数字
+        let reg=/^1[356789]\d{9}$/;
+        //3.3判断手机号的值是否满足正则
+        if(reg.test(telValue)){
+            //3.4满足正则，隐藏span标签
+            document.getElementById("tel_err").style.display="none";
+            //3.5可以提交表单
+            return true;
+        }else{
+            //3.6不满足正则，显示span标签
+            document.getElementById("tel_err").style.display="block";
+            //3.7不可以提交表单
+            return false;
+        }
+    }
+    
+    //4. 表单是否可以提交
+    //4.1给form标签绑定提交表单事件onsubmit
+    document.getElementById("reg-form").onsubmit=function(){
+       //4.2 三个输入框只要有一个非法就阻止表单提交，都合法才能提交表单
+       return checkUsername() && checkPassword() && checkTel();
+    }
+
+</script>
+</body>
+</html>
