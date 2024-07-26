@@ -1,0 +1,63 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+<body>
+  <script type="text/javascript">
+      /*
+        js的数据类型：
+          1.原始数据类型
+            1)number (整数 小数 NaN)
+            2)string 字符类型
+            3)布尔类型  true false
+            4)null ：空对象类型
+            5）undefined ：未定义类型
+          2.引用数据类型 Object Date等
+       */
+      //////////////////////////////////////1.原始数据类型////////////////////////////////////////////////////
+      //1.定义变量
+      let i=10;//number类型
+      console.log(typeof i);//typeof i 查看变量i属于哪种数据类型  number
+
+      let i2=1-'abc';
+      console.log(i2);//NaN  not a number
+      //查看i2的数据类型
+      console.log(typeof i2);//number
+
+      //定义变量保存字符类型
+      let s="锁哥";
+      console.log(typeof s);//string
+
+      let s1='锁哥';
+      console.log(typeof s1);//string
+
+      //es6之后定义字符类型还可以使用重音符(反单引号)，目的方便拼接
+      let s2=`柳岩`;
+      console.log(s2);//柳岩
+      console.log(typeof s2);//string
+
+      //定义变量
+      let x;
+      //输出x
+      console.log(x);//undefined 未定义类型
+
+      ////////////////////////////////////// 2.引用数据类型////////////////////////////////////////////////////
+      let date = new Date();//获取当前系统时间
+      console.log(date);//Mon Nov 07 2022 16:57:14 GMT+0800 (中国标准时间)
+      ///////////////////////typeof关键字////////////////////////////////////////
+      /*
+        typeof关键字作用：可以查看某个变量的数据类型。
+        格式：typeof 变量名
+       */
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+<body>
+  <script type="text/javascript">
+      /*
+        定义js中的变量：
+         
+       */
+      //1.使用es6之前方式定义
+      var x=10;
+      //输出到控制台
+      console.log(x);//10
+
+      //2.es6之后推荐使用let,不用var
+      let y=1.2;
+      console.log(y);//1.2
+
+      let z="锁哥";
+      console.log(z);//"锁哥"
+
+      //定义常量使用const 不能被改变
+      const PI=3.14;
+      //修改PI
+      PI=1.2;//报错，因为PI使用const修饰了，表示常量，不能修改
+      console.log(PI);//
+
+  </script>
+</body>
+</html>

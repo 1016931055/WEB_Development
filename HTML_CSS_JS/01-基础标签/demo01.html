@@ -1,0 +1,56 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，但也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>上方标题标签</title>
+</head>
+
+<body>
+    <!--
+        1.字体标签：font
+        2.font标签常见属性：
+            1）color ：表示字体颜色，颜色值有两种设置方式：
+                I:英文字母
+                II:十六进制 #xxyyzz   通过RGB来表示各种颜色 R xx  G yy  B  zz  如果每小组数字都一样只需要书写一个数字
+                    
+            2)size:字体大小
+                取值范围是：1-7  一次递增 默认是3
+            3)face:字体样式 
+                楷体 黑体 宋体
+    -->
+    <font color="blue">黑马</font>
+    <font color="blue" size="3">黑马</font>
+    <font color="#ff0000" size="7" face="楷体">黑马</font>
+    <font color="#f00" size="1">黑马</font>
+    <!--
+        3.i标签：倾斜
+        4.b标签：加粗
+    -->
+    <i>我是倾斜的</i>
+    <b>我是加粗的</b>
+    <b><i>我既是加粗的额，又是倾斜的</i></b>
+
+
+    <!--5.水平线-->
+    <hr/>
+
+    <!--
+        6.br标签：换行
+    -->
+    别睡了， <br>吃饭了
+   
+
+    <!-- 
+        7.center表示文本居中标签
+    -->
+    <center>居中显示</center>
+</body>
+
+</html>

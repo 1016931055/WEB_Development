@@ -1,0 +1,74 @@
+<!-- 注册页面案例实现 -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>注册页面</title>
+ </head>
+ <body>
+    <form action="#" method="post">
+        <table cellpadding="0px" cellspacing="0px">
+            <tr colspan="3">
+                <td><font color = "blue">会员注册</font>&nbsp;&nbsp;</td>
+                <td>USER REGISTER</td>
+            </tr>
+
+            <tr>
+                <td><b>用户名</b></td>
+                <td><input type="text" placeholder = "请输入用户名" name="username"></td>
+            </tr>
+
+            <tr>
+                <td><b>密码</b></td>
+                <td><input type = "password" placeholder = "请输入密码"></td>
+            </tr>
+
+            <tr>
+                <td><b>确认密码</b></td>
+                <td><input type = "password" placeholder = "请确认密码" name="password"></td>
+            </tr>
+
+            <tr>
+                <td><b>Email</b></td>
+                <td><input type="email" placeholder="Email" name="email"></td>
+            </tr>
+
+            <tr>
+                <td><b>姓名</b></td>
+                <td><input type="text" placeholder="请输入姓名" name = "realname"></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><b>性别</b></td>
+                <td><input type="radio" id="man" name="gender">
+                    <label for="man">男</label>
+                </td>
+                <td><input type="radio" id="woman" name="gender">
+                    <label for="woman">女</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>出生日期</b></td>
+                <td><input type="date" name="birthday"></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><b>验证码</b></td>
+                <td><input type="text" name="checkcode"></td>
+                <td><img src="../img/三只松鼠.png" width="160" height="40"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                        <input type="submit" value="注册" ></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    
+ </body>
+ </html>

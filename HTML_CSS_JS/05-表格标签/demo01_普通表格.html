@@ -1,0 +1,74 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+
+<body>
+    <!--
+        1.表格标签：table
+        2.table标签的子标签：
+          1）行标签：tr
+          2) 列标签：td th
+              注意：th表示表格标题标签，自动加粗和居中显示
+        3.border="1px" 表示表格边框
+        4.cellspacing="0px" 表示表格单元格之间的距离是0，即没有距离
+        5.width="50%" 表示表格标签的宽度占页面的50%
+        6.tr的属性：align="center"，值center表示居中 left 靠左 right 靠右
+    -->
+    <!-- 快捷键：table>tr*4>td*4--创建4*4的表格  -->
+    <table border="1px" cellspacing="0px" width="50%">
+      <!-- 第一行 -->
+      <tr>
+        <!-- 第一行的第一列 -->
+        <th>序号</th>
+        <!-- 第一行的第二列 -->
+        <th>品牌logo</th>
+        <!-- 第一行的第三列 -->
+        <th>品牌名称</th>
+        <!-- 第一行的第四列 -->
+        <th>企业名称</th>
+      </tr>
+      <!-- 第二行 -->
+       
+      <tr align="center">
+        <td>010</td>
+        <td>
+          <!-- 图片 -->
+          <img src="../img/三只松鼠.png" height="30px" width="50px"/>
+        </td>
+        <td>
+          三只松鼠
+        </td>
+        <td>
+          三只松鼠
+        </td>
+      </tr>
+      <!-- 第三行 -->
+      <tr align="center">
+        <td>009</td>
+        <td>
+          <img src="../img/优衣库.png" height="30px" width="50px"/>
+        </td>
+        <td>优衣库</td>
+        <td>优衣库</td>
+      </tr>
+      <!-- 第四行 -->
+      <tr align="center">
+        <td>008</td>
+        <td><img src="../img/小米.png" height="30px" width="50px"/></td>
+        <td>小米</td>
+        <td>小米科技有限公司</td>
+      </tr>
+    </table>
+</body>
+
+</html>

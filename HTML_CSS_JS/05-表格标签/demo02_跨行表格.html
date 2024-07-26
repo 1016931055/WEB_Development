@@ -1,0 +1,44 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+
+<body>
+    <!--
+      需求1: 实现跨行,制作电话本
+    -->
+    <table border="1px" cellspacing="0px" width="400px">
+      <tr>
+        <th>姓名</th>
+        <th>手机号</th>
+      </tr>
+      <!-- 第二行 -->
+      <tr>
+        <!-- 
+          当前列跨2行：第二行和第三行
+         -->
+        <td rowspan="2">张三</td>
+        <td>138000000000</td>
+      </tr>
+      <!-- 第三行 -->
+      <tr>
+        <!-- <td>张三</td> -->
+        <td>138000000001</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>139000000000</td>
+      </tr>
+    </table>
+</body>
+
+</html>

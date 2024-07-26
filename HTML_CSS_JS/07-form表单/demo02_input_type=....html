@@ -1,0 +1,56 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+
+<body>
+    <!--
+      input输入项
+        1.<input type="text">
+        2.<input type="password">  加密格式 
+        3.<input type="radio" name="sex"> 男 <input type="radio" name="sex"> 女  --单选按钮
+            如果想实现单选的效果必须给input标签设置name属性，并且属性值要一致         
+        4. <input type="checkbox"> 篮球 <input type="checkbox"> 足球  复选框，可以实现多选
+        5. <input type="file"> 上传的文件
+        6.<input type="hidden" value="918i"> 页面不显示，用户看不到,但是可以存在form表单中
+        7.<input type="submit" value="登录">  默认值为“提交”
+
+        补充： 如果单选按钮和复选框被选中，那么需要给input标签加checked属性
+    -->
+    <input action="#" method="post">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username"> <br>
+        密码：<input type="password" name="password"><br>
+        性别：<input type="radio" name="sex" id="male"> 
+        <label for="male">男</label>
+        <!-- 
+            label标签表示为表单项定义标注，即可以通过for属性值关联其他标签的id属性值，这样我们
+            只需要点击label标签的文本就可以找到关联的标签
+         -->
+         <input type="radio" name="sex" id="female" checked> 
+         <label for="female">女</label><br>
+         爱好：
+            <input type="checkbox"> 抽烟 
+            <input type="checkbox"> 喝酒 
+            <input type="checkbox" checked> 烫头  <!-- checked为默认选中-->
+            <br>
+            <!-- 5. <input type="file"> 上传的文件 -->
+        <input type="file">
+        <!--  6.<input type="hidden" value="918181iauaioO">  -->
+        <input type="hidden" value="918181iauaioO">
+        <br>
+        <!-- 提交表单 -->
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+
+<body>
+    <form action="#">
+        <!--
+            1.select下拉项：需要结合子标签option一起使用，有几个下拉项就有几个option
+            2.提交到后台的数据是用户当前选中的下拉项的option的value值
+            3.option的属性selected表示当前下拉项被选中
+        -->
+        <select name="" id="">
+            <option value="">---------请选择----------</option>
+            <option value="sh">上海</option>  <!-- 用户选择上海后,提交到后台的是value值"sh"-->
+            <option value="bj" selected>北京</option>
+        </select>
+        <hr>
+
+        <!--
+          textarea文本域：由行和列组成
+            cols="30" 占30列
+            rows="10" 占10行
+        -->
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    </form>
+
+    
+</body>
+
+</html>

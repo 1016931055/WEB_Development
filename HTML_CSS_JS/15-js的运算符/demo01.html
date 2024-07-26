@@ -1,0 +1,53 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+<body>
+  <script type="text/javascript">
+      /*
+         == 和 ===区别
+          1.== 非严格比较，具有类型转换功能，转换一样类型之后直接比较数值
+          2.=== 严格比较，先比较变量的数据类型，如果数据类型不一致直接返回false,如果数据类型一致在比较数值
+       */
+      //定义变量
+      let i=10;
+      let s='10';
+      console.log(i==s);//true
+      console.log(i===s);//false
+      /*
+        逻辑运算符：
+          && : 一徦即假
+          || ：一真即真
+          !：取反
+         TODO:在js中逻辑运算符可以针对不仅仅是布尔类型。在js中有六种假：
+            1.false
+            2.0
+            3.''或者""空字符
+            4.null
+            5.undefined
+            6.NaN
+       */
+      // if(false || 10){
+      //   console.log("真的");
+      // }else{
+      //   console.log("假的");
+      // }
+      //(1-'abc') 是NaN 是假   'haha'  是真
+      if('haha' && (1-'abc')){
+        console.log("真的");
+      }else{
+        console.log("假的");
+      }
+     
+  </script>
+</body>
+</html>

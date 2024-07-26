@@ -1,0 +1,79 @@
+<!-- 文档类型声明标签，告知浏览器这个页面采取html版本来显示页面 -->
+<!DOCTYPE html>
+<!-- 告诉浏览器这是一个英文网站，本页面采取英文显示，单也可以书写中文 -->
+<html lang="en">
+
+<head>
+    <!-- 必须书写，告知浏览器以UTF-8编码表编解码中文，如果不书写就会乱码 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 标题标签 -->
+    <title>title</title>
+</head>
+
+<body>
+    <!--  
+      1.有序列表标签 ol (123... abcd...这种有序)
+          1）子标签：li
+          2)ol具有属性 type，属性值：1（默认的） A  a  I i
+      2.ol和ul以及li标签上都具有一个type属性，表示当前列表类型
+    -->
+    <ol>
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <ol type="1">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <ol type="A">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <ol type="a">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <ol type="I">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <ol type="i">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ol>
+    <hr>
+    <!--
+      无序列表：ul
+        type属性值：circle(空心圆)  square（实心方形） dis(实心圆，默认的)
+    -->
+    <ul>
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ul>
+    <ul type="circle">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ul>
+    <ul type="square">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ul>
+    <ul type="dis">
+      <li>柳岩</li>
+      <li>殷桃</li>
+      <li>大头</li>
+    </ul>
+</body>
+
+</html>

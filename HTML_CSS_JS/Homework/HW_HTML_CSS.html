@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+/*给整个页面添加背景图片*/
+body{
+background-image: url(img/bg.jpg);
+}
+/*设置div*/
+div
+{
+/*div的宽度*/
+width: 500px;
+/*div的高度*/
+height:400px;
+/*div的边框*/
+border: 8px solid lightgray;/*lightgray表示灰色*/
+/*div的背景颜色*/
+background-color: white;
+/*让div居中，设置外边距即可*/
+margin: 50px auto;/*50px 表示div的盒子上下是50px,以上优先。auto表示div
+的盒子左右自动适应*/
+/*设置内边距*/
+padding: 40px 80px;
+}
+/* 设置行高*/
+tr{
+height: 40px;
+}
+/*设置输入框的高度*/
+input{
+height: 30px;
+}
+</style>
+</head>
+<body>
+<div>
+<!--书写form表单-->
+<form action="#" method="post">
+<!--书写table表格，通过分析需要书写10行3列-->
+<table>
+<!--标题 一行,跨3列-->
+<tr>
+<td colspan="3">
+<font color="blue">会员注册</font>&nbsp;USER REGISTER
+</td>
+</tr>
+<!--用户名-->
+<tr>
+<td>用户名</td>
+<td colspan="2">
+<input type="text" name="username" size="30"
+placeholder="请输入用户名" />
+</td>
+</tr>
+<tr>
+<td>密码</td>
+<td colspan="2">
+<input type="password" name="password" size="30"
+placeholder="请输入密码" />
+</td>
+</tr>
+<tr>
+<td>确认密码</td>
+<td colspan="2">
+<input type="password" name="repassword" size="30"
+placeholder="请输入确认密码" />
+</td>
+</tr>
+<tr>
+<td>Email</td>
+<td colspan="2">
+<input type="text" name="email" size="30"
+placeholder="Email" />
+</td>
+</tr>
+<tr>
+<td>姓名</td>
+<td colspan="2">
+<input type="text" name="realname" size="30"
+placeholder="请输入姓名" />
+</td>
+</tr>
+<tr>
+<td>性别</td>
+<td colspan="2">
+<input type="radio" name="sex" />男
+<input type="radio" name="sex" checked="checked" />女
+</td>
+</tr>
+<tr>
+<td>出生日期</td>
+<td colspan="2">
+<input type="text" name="birthday" size="30"
+placeholder="请输入出生日期" />
+</td>
+</tr>
+<tr>
+<td>验证码</td>
+<td>
+<input type="text" name="checkCode" size="15" />
+</td>
+<td>
+<img src="../img/三只松鼠.png" width="160" height="40"/>
+</td>
+</tr>
+<tr>
+实现效果：
+<td></td>
+<td>
+<!--<img src="img/btn.jpg" />-->
+<input type="submit" value="注册" />
+</td>
+<td></td>
+</tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
