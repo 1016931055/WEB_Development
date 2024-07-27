@@ -28,8 +28,19 @@
       //   console.log("不删除");
       // }
 
+      window.alert("即将弹出选项,请谨慎选择！")
+      let conf = window.confirm("确定要关闭该页面吗？")
 
-      
+
+      function myfunc(conf){
+        if(conf){
+          document.write("页面已被关闭");
+      }else{
+          let conf2 = window.confirm("请再次做出选择:");
+          myfunc(conf2);
+      }
+      }
+      myfunc(conf);
 
       /*
         2.定时器：
@@ -40,9 +51,9 @@
           window.clearInterval(定时器变量名);
        */
       //开启定时器，每隔1秒输出一次hello
-      // window.setInterval(function(){
-      //   console.log("hello");
-      // },1000);
+      window.setInterval(function(){
+        console.log("hello");
+      },1000);
 
       //开启定时器，页面被加载3秒后有个延迟在输出一次hello，只输出一次
       // console.log("hello");

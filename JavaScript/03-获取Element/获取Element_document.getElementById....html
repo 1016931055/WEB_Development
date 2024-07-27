@@ -23,14 +23,24 @@
 <br>
 
 <script>
+    let img =  document.getElementById("light");
+    console.log(img);
+    let arrClass = document.getElementsByName("hobby");
+    console.log(arrClass);
+
+    let arrDiv = document.getElementsByTagName("div");
+    console.log(arrDiv);
+    for (let i = 0; i < arrDiv.length; i++) {
+        document.write(arrDiv[i].innerText +"<br>");
+    }
     /*
     获取：使用Document对象的方法来获取
         * getElementById：根据id属性值获取，返回一个Element对象
         * getElementsByTagName：根据标签名称获取，返回Element对象数组
         * getElementsByName：根据name属性值获取，返回Element对象数组
         * getElementsByClassName：根据class属性值获取，返回Element对象数组
+    */
 
-     */
     //1. getElementById：根据id属性值获取，返回一个Element对象
     //获取img标签：<img id="light" src="imgs/off.gif">
     let oImg = document.getElementById("light");//参数light表示img标签的id属性值 oImg 就是<img id="light" src="imgs/off.gif">标签对象
@@ -47,7 +57,6 @@
     //4. getElementsByClassName：根据class属性值获取，返回Element对象数组
     //获取class是cls的标签
     let arrCls = document.getElementsByClassName("cls");//参数cls是标签<div class="cls">传智教育</div> 的class属性值
-
 </script>
 </body>
 </html>
