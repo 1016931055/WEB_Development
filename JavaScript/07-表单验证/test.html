@@ -2,45 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../07-表单验证/css/register.css">
+    <title>欢迎注册</title>
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <form action="#" method="post">
-        <center>
-            <table>
-                <tr>
-                    <td>用户名</td>
-                    <td><input type="text" id="name" placeholder="请输入用户名"></td>
-                </br>
-                </tr>
-                <tr>
-                    <td>手机号</td>
-                    <td><input type="text" id="phone" placeholder="可用于登录和找回密码"></td>
-                </tr>
-                <tr>
-                    <td>密码</td>
-                    <td><input type="password" id="password" placeholder="请设置登录密码"></td>
-                </tr>
-                <tr>
-                    <td>验证码</td>
-                    <td><input type="text" placeholder="请输入验证码"></td>
-                    <td><input type="button" value="获取验证码" id="checkCode"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="注册"></td>
-                    <td></td>
-                </tr>
-            </table>
-        </center>
-    </form>
+    <div class="form-div">
+        <div class="reg-content" >
+            <h1>欢迎来到注册界面</h1>
+            <span>已有账号?</span> <a href="#">登录</a>
+        </div>
+            <form id="reg-form" action="#" method="post">
+                <table>
+                    <tr>
+                        <td>用户名</td>
+                            <td class="inputs">
+                                <!-- TODO:给下面的用户名输入框绑定一个离焦事件，鼠标离开输入框焦点就调用函数checkUsername() -->
+                                <input type="text" id="username" name="username" placeholder="请输入用户名"
+                                onblur="checkUsername()">
+                                <br>
+                                <!--display: none 属于css语法，表示隐藏标签  -->
+                                <span id = "username_err" class = "err_msg" style="display: none">
+                                    请输入6-12位的用户名!
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="inputs">手机号</td>
+                            <td><input type="text" name = "tel" id = "tel" placeholder="可用于登录和找回密码" 
+                                onblur="checkTel()">
+                            <br>
+                            <span id = "tel_err" class = "err_msg" style="display: none">手机号格式有误</span>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td class = "inputs">密码</td>
+                            <td><input type="password" id="password" placeholder="请设置登录密码" 
+                                onblur="checkPassword()">
+                                <br>
+                            <span id = "password_err" class = "err_msg" style="display: none;">密码格式有误</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>验证码</td>
+                            <td><input type="text" placeholder="请输入验证码"></td>
+                            <td><input type="button" value="获取验证码" id="checkCode"></td>
+                        </tr>
+                    </table>
+
+                <div class="buttons">
+                    <input type = "submit" value="注册" id="reg_btn">
+                </div>
+                <br class = "clear">
+            </form>
+        </div>
+    
 
     <script>
         document.getElementById("checkCode").onclick = function(){
             alert("验证码已发送,请注意查收");
         }
+
+        //1. 验证 用户名是否符合规则：长度 6~12,单词字符组成
+        function checkUsername(){
+            //1.1 获取用户名输入框输入的值
+            let usernameValue = document.getElementById("username").value;
+            //1.2 创建正则对象 new RegExp("\\w"); 
+            //单词字符 : \w
+            let reg = /^\w{6,12}$/;
+            //1.3判断输入的值是否满足正则  正则对象.test(被验证的字符串)
+            if(reg.test(usernameValue)){
+                //1.4被验证的字符串满足正则即合法
+                //隐藏<span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>显示出来
+                document.getElementById("username_err").style.display="none";
+                //提交表单
+                return true;
+            }else{
+                //被验证的字符串满足不正则即非法，这里需要将标签 
+                // <span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>显示出来
+                //js操作css样式：标签对象.style.样式名 = 样式值
+                document.getElementById("username_err").style.display="block";
+                //阻止表单提交
+                return false;
+            }
+        }
+        function checkTel(){
+            let telNumber = document.getElementById("tel").value;
+            //3.2创建正则对象 \d 表示[0-9]   \d{9} 这里表示从第三位开始正好出现9次数字
+            let reg = /^1[356789]\d{9}$/;
+            //3.3判断手机号的值是否满足正则
+            if(reg.test(telNumber)){
+                //3.4满足正则，隐藏span标签
+            document.getElementById("tel_err").style.display="none";
+            //3.5可以提交表单
+            return true;
+        }else{
+            //3.6不满足正则，显示span标签
+            document.getElementById("tel_err").style.display="block";
+            //3.7不可以提交表单
+            return false;
+        }
+    }
+    function checkPassword(){
+        let passwordValue = document.getElementById("password").value;
+
+        let reg = /^.{6,12}$/;
+
+        if(reg.test(passwordValue)){
+            document.getElementById("password_err").style.display="none";
+            //可以提交表单
+            return true;
+        }else{
+            document.getElementById("password_err").style.display = "block";
+            //不能提交表单
+            return false;
+        }
+    }
 
         
     </script>
