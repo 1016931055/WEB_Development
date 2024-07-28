@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速入门升级</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="app">
+        <!-- {{name}}插值 -->
+        <div >姓名：{{name}}</div>
+        <div>班级：{{classRoom}}</div>
+        <!-- <button onclick="hi()">打招呼</button> -->
+        <!-- 普通按钮，调用原生js中的update函数 -->
+        <button onclick="update()">修改班级</button>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    // 脚本 ve表示vue对象名
+    let ve = new Vue({
+        //作用的视图：
+        el:"#app",
+        //数据模型
+        //data:{}
+        data(){
+            return{
+                name:"张三",
+                classRoom:"黑马153"
+            }
+        },
+        //vue对象中定义函数
+        methods: {
+            show:function(){
+                //输出
+                console.log("show.....");
+            }
+        },
+    }) 
+    
+    //在vue对象外部创建普通的js函数
+    function update(){
+        //console.log("update.....");
+        //调用vue中的show函数
+        ve.show();
+    }
+
+</script>
+</html>

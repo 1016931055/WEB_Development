@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本插值</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+        <!-- TODO:插值不能解析html标签 -->
+        <div>{{msg}}</div>
+        <!-- TODO:使用文本插值指令v-html -->
+        <!--
+            文本插值指令v-html:通过data的key获取value显示标签的文本中.解析html标签
+             <div> 
+                <h1>Hello Vue</h1>
+             </div>
+         -->
+        <div v-html="msg"></div>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    // 脚本
+    new Vue({
+        el:"#div",
+        data(){
+            return{
+                msg:"<h1>Hello Vue</h1>"
+            }
+        }
+    });
+</script>
+</html>

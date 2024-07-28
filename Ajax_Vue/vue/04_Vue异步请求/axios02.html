@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异步请求案例</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+
+</head>
+<body>
+    <!--
+        vue
+            1. 视图
+            2. 脚本
+            data改变,视图会随之改变
+            我们从服务器获取数据,只要修改data,视图就会改变
+            我们无需在js中直接操作视图了
+    -->
+<div id="div">
+    <h1>登录页面</h1>
+    <!--
+        v-model="user.username" :使用双向数据表绑定。
+        双向绑定：数据模型改变，视图改变。视图改变，数据模型改变。
+        user: {
+            username:"锁哥",
+            password:"1234"
+
+        }
+    -->
+    <input type="text" name="username" placeholder="请输入用户名" v-model="user.username"> <br>
+    <input type="password" name="password" placeholder="请输入密码" v-model="user.password"><br>
+    <!-- 全称写法：v-on:click="send()" 调用函数send  -->
+    <button @click="send()">登录</button>
+
+
+    <h1>主页: 显示好友列表</h1>
+    <ul>
+        <!-- 遍历数组 -->
+        <!-- 
+            list=[{age:18,id:"001",name:"张三"},{age:18,id:"002",name:"李四"},{age:18,id:"003",name:"王五"}]
+           第一次： element={age:18,id:"001",name:"张三"}
+           第2次： element={age:18,id:"002",name:"李四"}
+           ...
+         -->
+        <li v-for="element in list">
+            {{element.id}},{{element.name}},{{element.age}}
+        </li>
+    </ul>
+</div>
+
+</body>
+<script>
+    //脚本
+    new Vue({
+        el: "#div",
+        data: {
+             //TODO; 由于表单双向数据绑定的存在,当用户操作表单时,user就会有数据(json格式)
+            user: {},
+            list: []
+        },
+        methods: {
+            send: function () {
+                //1.当点击登录按钮，向后台发送请求获取好友列表，并将用户名和密码数据提交到后台
+                /*
+                    说明：
+                        1.向后台请求地址：http://localhost:8080/axiosDemo02Servlet
+                        2.this.user就是json格式的数据：user = {"username":"锁哥","password":"1234"}
+                */
+               axios.post("http://localhost:8080/axiosDemo02Servlet",this.user)
+                    .then(resp=>{
+                        console.log(resp.data);
+                        //resp.data={flag: true, message: '查询好友成功', valueData: Array(3)}
+                        //判断
+                        let obj = resp.data;
+
+                        if(obj.flag){
+                            //说明查询好友列表成功，将后台响应的数组数据赋值给数据模型中的list
+                            //list=[{age:18,id:"001",name:"张三"},{age:18,id:"002",name:"李四"},{age:18,id:"003",name:"王五"}]
+                            this.list=obj.valueData;
+                        }
+                    });
+            }
+        }
+    });
+</script>
+</html>

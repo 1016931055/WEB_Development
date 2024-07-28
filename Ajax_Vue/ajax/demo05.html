@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>ajax和json综合</h1>
+<!--
+    获取好友列表
+    onclick="method01()" 给下面按钮标签绑定单击事件，单击按钮就会调用method01()函数
+-->
+<input type="button" value="响应数据是json字符串" onclick="method01()"> <br>
+<hr>
+<h3>好友列表</h3>
+<!--存放查询好友的结果信息-->
+<div id="messageDiv"></div>
+<table width="500px" cellspacing="0px" cellpadding="5px" border="1px" id="myTable">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+    </tr>
+    <!--<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>-->
+    
+
+</table>
+
+</body>
+<!--导入axios库-->
+<script type="text/javascript" src="js/axios-0.18.0.js"></script>
+<script type="text/javascript">
+    /*
+      需求：向后台发送请求，获取好友列表并显示到页面中
+      说明：后台的url地址： "http://localhost:8080/axiosJsonDemo01Servlet"
+     */
+
+     function method01() {
+        //向后台发送请求
+        axios.get("http://localhost:8080/axiosJsonDemo01Servlet")
+             .then(resp=>{
+                //console.log(resp.data);
+                /*
+                   obj= resp.data={flag: true, message: '查询好友列表成功', 
+                              valueData: [{age: 18, id: '001', name: '张三'},
+                                          {age: 19, id: '002', name: '李四'},
+                                          {age: 20, id: '003', name: '王五'}]}
+                */
+               //1.定义变量接收后端响应的数据
+               let obj = resp.data;
+               //2.判断查询好友列表是否成功
+               if(obj.flag){
+                    //说明查询好友列表成功
+                    //3.将后台响应的成功信息放到<div id="messageDiv"></div>文本中
+                    document.getElementById("messageDiv").innerHTML=obj.message;
+                    //4.定义变量存储从后台响应的数组数据即好友信息
+                    let content="";//一定给初始化值，否则undefined
+                    //5.遍历数组valueData
+                    for(let f of obj.valueData){//f表示数组中每个json对象即f={age: 18, id: '001', name: '张三'}
+                        //6.取出每个json对象的数据放到content中
+                        content=content+`<tr>
+                                            <td>${f.id}</td>
+                                            <td>${f.name}</td>
+                                            <td>${f.age}</td>
+                                        </tr>`;
+                    }
+                    //console.log(content);
+                    //7.将content内容放到上述table标签文本中
+                    //document.getElementById("myTable").innerHTML=document.getElementById("myTable").innerHTML+content;
+                    document.getElementById("myTable").innerHTML+=content;
+               }
+             });
+    }
+</script>
+
+</html>

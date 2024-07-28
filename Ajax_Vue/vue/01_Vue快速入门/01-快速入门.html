@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速入门</title>
+</head>
+<body>
+    <!-- TODO:vue第一部分：视图 -->
+    <div id="app">
+        <!-- 在vue中有个插值表达式简称插值可以获取数据模型中的数据并显示到页面中  {{数据模型中的冒号左边的标识}}-->
+        <!-- 注意：插值必须放到vue的视图中才可以获取数据 -->
+        {{msg}}
+    </div>
+
+    
+</body>
+<!-- 导入vue的核心库 -->
+<script src="js/vue.js"></script>
+<script>
+    // TODO:vue第二部分：脚本 js代码用来存放数据的
+    new Vue({
+        //1.作用的视图
+        //TODO:el是element元素的简写，通过视图即html标签的id属性值进行关联，这里的app是上述视图中div
+        //标签的id属性值
+        el:"#app",
+        //2.存放的数据
+        /*
+            数据模型：
+                1）data:{
+                    name:value,
+                    name:value
+                    .......
+                }
+        */
+        data:{
+            msg:"vue基础入门"
+        }
+    });
+</script>
+</html>

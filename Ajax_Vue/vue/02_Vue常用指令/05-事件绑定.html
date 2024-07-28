@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定</title>
+</head>
+
+<body>
+    <div id="div">
+        <div>{{name}}</div>
+
+        <!--
+            v-on：为 HTML 标签绑定事件
+            v-on:click="change()" :使用v-on指令给按钮标签绑定单击事件，只要单击按钮就会调用vue中change函数
+        -->
+        <!-- <button onclick="change()">单击_改变div的内容</button> -->
+        <button v-on:click="change()">单击_改变div的内容</button>
+        <!-- 这里可以不加小括号 -->
+        <button v-on:dblclick="change">双击_改变div的内容</button>
+        <!-- @click="change" 是 v-on:click="change()"简写 -->
+        <button @click="change">简写_改变div的内容</button>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#div",
+        data:{
+            name:"黑马程序员"
+        },
+        methods:{
+            //vue的函数
+            // change:function(){
+
+            // }
+            change(){
+                //修改数据模型的name的值为传智播客
+                this.name = "传智播客"
+            }
+        }
+    });
+</script>
+</html>

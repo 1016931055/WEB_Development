@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input type="text" name="username" placeholder="请输入用户名" id="username">
+    <span id="usernameSpan"></span>
+    <br>
+    <input type="password" name="password" placeholder="请输入密码"> <br>
+    <button>提交</button>
+</form>
+<!--  导入axios类库  -->
+<script type="text/javascript" src="js/axios-0.18.0.js"></script>
+<script type="text/javascript">
+    /*
+        说明：
+            1.后台地址url："http://localhost:8080/registerServlet"
+            2.后台需要根据key即参数名是username来获取前端提交的用户名数据
+            3.后台已经存在的用户名是："岩岩"
+     */
+    //1.给用户名输入框绑定离焦事件
+    document.getElementById("username").onblur=function(){
+        //2.获取用户名输入框输入的数据
+        //this 表示调用当前事件onblur的标签对象即document.getElementById("username")
+        let usernameValue = this.value;
+        //3.判断是否输入数据
+        //alert(usernameValue.trim());//trim() 去掉字符串usernameValue的值的前后空格
+        if(usernameValue.trim()){
+            //4.说明usernameValue去掉了前后空格依然有数据，那么就是真
+            //向后台发送请求
+            axios.get("http://localhost:8080/registerServlet?username="+usernameValue)
+                 .then(resp=>{
+                    //TODO:如果输入的注册用户名存在，后台响应的数据即resp.data是false,表示不能注册
+                    //TODO:如果输入的注册用户名不存在，后台响应的数据即resp.data是true,表示能注册
+                    //console.log(resp.data);
+                    //5.判断是否可以注册
+                    if(resp.data){
+                        //说明可以做注册
+                        //6.给用户名的span标签设置文本信息
+                        //element.innerHTML	设置或返回元素的内容。
+                        document.getElementById("usernameSpan").innerHTML="√恭喜，该用户名可以注册";
+                        //7.使用js操作css样式，设置字体为绿色
+                        document.getElementById("usernameSpan").style.color="green";
+                    }else{
+                        //不可以注册
+                        //8.设置文本
+                        document.getElementById("usernameSpan").innerHTML="sorry,亲，该用户名已经存在";
+                        //9.设置字体颜色
+                        document.getElementById("usernameSpan").style.color="red";
+                    }
+                 });
+
+        }
+    }
+
+</script>
+</body>
+
+</html>
