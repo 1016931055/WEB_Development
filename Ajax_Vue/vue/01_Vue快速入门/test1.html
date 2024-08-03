@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "mydiv">
+        <!--插值表达式 -->
+        {{msg}}
+    </div>
+</body>
+
+<script src="js/vue.js"></script>
+<script>
+    // 编写vue脚本代码
+    new Vue({
+        el: "#mydiv",
+
+        data:{
+            msg:"测试代码"
+        }
+    })
+</script>
+    
+
+</html>

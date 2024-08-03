@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id= "div">
+        ({{msg}})
+        <br>
+        <button @click = "created2()">点我试试看</button>
+    </div>    
+
+</body>
+
+<script src="js/axios-0.18.0.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el : "#div",
+        
+        data:{
+           msg:"这是一条消息", 
+        },
+
+        methods:{
+            created1(){
+                console.log("文件已创建！")
+                window.alert("调用了created()方法!")
+            },
+
+            created2(){
+                axios.get("http://localhost:8080/axiosDemo01Servlet")
+                .then(resp=>{
+                    console.log(resp.data);
+                })
+            }
+        },
+        
+        created(){
+            this.created2()
+        }
+    })
+</script>
+
+
+</html>

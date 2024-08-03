@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+        <div>姓名：{{name}}</div>
+        <div>班级：{{classRoom}}</div>
+        <input type="button" value="hi" onclick="hi()">
+        <button onclick="update()"><b>修改班级</b></button>
+       
+    </div>
+</body>
+
+<script src="js/vue.js"></script>
+ <script>
+    
+    let ve = new Vue({
+        el: "#app",
+
+        data: {"name": "szl",
+            "classRoom": "536"
+        },
+
+        methods:{
+            show:function(){
+                console.log("show...");
+            }
+        }
+    })
+
+    function  hi(){
+        window.alert("Hello!");
+        ve.show();
+    }
+
+    function update(){
+        window.alert("更新成功!")
+    }
+</script>
+</html>

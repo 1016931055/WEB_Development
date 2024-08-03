@@ -15,13 +15,14 @@
             v-on:click="change()" :使用v-on指令给按钮标签绑定单击事件，只要单击按钮就会调用vue中change函数
         -->
         <!-- <button onclick="change()">单击_改变div的内容</button> -->
-        <button v-on:click="change()">单击_改变div的内容</button>
+        <button v-on:click="change">单击_改变div的内容</button>
         <!-- 这里可以不加小括号 -->
-        <button v-on:dblclick="change">双击_改变div的内容</button>
+        <button v-on:dblclick="change2">双击_改变div的内容</button>
         <!-- @click="change" 是 v-on:click="change()"简写 -->
         <button @click="change">简写_改变div的内容</button>
     </div>
 </body>
+
 <script src="js/vue.js"></script>
 <script>
     new Vue({
@@ -37,6 +38,10 @@
             change(){
                 //修改数据模型的name的值为传智播客
                 this.name = "传智播客"
+            },
+
+            change2(){
+                this.name = "SZL"
             }
         }
     });
