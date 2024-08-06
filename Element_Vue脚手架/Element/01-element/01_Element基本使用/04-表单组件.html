@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单组件</title>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <!-- <script src="../js/vue.js"></script> -->
+     <!-- 导入新的Vue库 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <script src="../element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="div">
+        <!-- Form 组件提供了表单验证的功能，只需要通过 rules 属性传入约定的验证规则，并将 Form-Item 的 prop 属性设置为需校验的字段名即可 -->
+        <!-- 
+            1.el-form 标签表示form表单标签
+            2.:rules="rules" 全称写法 v-bind:rules="rules"  属性值rules是数据模型中。
+                    rules: {
+                                name: [
+                                    { required: true, message: '请输入活动名称', trigger: 'blur' },
+                                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                                ],
+                                region: [
+                                    { required: true, message: '请选择活动区域', trigger: 'change' }
+                                ],
+                                date1: [
+                                    { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+                                ],
+                                date2: [
+                                    { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+                                ],
+                                type: [
+                                    { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+                                ],
+                                resource: [
+                                    { required: true, message: '请选择活动资源', trigger: 'change' }
+                                ],
+                                desc: [
+                                    { required: true, message: '请填写活动形式', trigger: 'blur' }
+                                ]
+                        }
+         -->
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <!-- 
+                通过el-form-item属性prop="name"来设置需要校验的字段，prop的属性值name就是下面数据模型中rules的key:
+                    rules: {
+                                name: [
+                                    { required: true, message: '请输入活动名称', trigger: 'blur' },
+                                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                                ]
+                                ....
+                            }           
+              label="活动名称" 就是输入框前面显示的内容
+             -->
+            <el-form-item label="用户名" prop="name">
+                <!-- 
+                    v-model="ruleForm.name" 双向数据绑定。视图改变。数据模型改变。数据模型改变，视图改变。
+                    v-model="ruleForm.name"  数据模型中有ruleForm，并且在ruleForm中有name:
+                        ruleForm: {
+                            name: '',
+                            region: '',
+                            date1: '',
+                            date2: '',
+                            delivery: false,
+                            type: [],
+                            resource: '',
+                            desc: ''
+                    },
+                 -->
+              <el-input v-model="ruleForm.name"></el-input>
+            </el-form-item>
+
+            <el-form-item label="活动区域" prop="region">
+              <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+
+            <el-form-item label="活动时间" required>
+              <el-col :span="11">
+                <el-form-item prop="date1">
+                  <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col class="line" :span="2">-</el-col>
+              <el-col :span="11">
+                <el-form-item prop="date2">
+                  <el-time-picker placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
+                </el-form-item>
+              </el-col>
+            </el-form-item>
+
+
+            <el-form-item label="即时配送" prop="delivery">
+              <el-switch v-model="ruleForm.delivery"></el-switch>
+            </el-form-item>
+
+            <el-form-item label="活动性质" prop="type">
+              <el-checkbox-group v-model="ruleForm.type">
+                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                <el-checkbox label="地推活动" name="type"></el-checkbox>
+                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+
+
+            <el-form-item label="特殊资源" prop="resource">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="线上品牌商赞助"></el-radio>
+                <el-radio label="线下场地免费"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+
+
+            <el-form-item label="活动形式" prop="desc">
+              <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+            </el-form-item>
+
+
+            <el-form-item>
+                <!-- 
+                    @click="submitForm('ruleForm')" : 给当前按钮标签绑定一个单击事件，单击 立即创建 按钮的时候就会调用submitForm函数
+                    ruleForm代表整个form表单进行传递到该函数中
+                 -->
+              <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+              <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+          </el-form>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#div",
+        data() {
+                return {
+                    ruleForm: {
+                            name: '',
+                            region: '',
+                            date1: '',
+                            date2: '',
+                            delivery: false,
+                            type: [],
+                            resource: '',
+                            desc: ''
+                    },
+                    rules: {
+                            name: [
+                                { required: true, message: '请输入用户名', trigger: 'blur' },
+                                { min: 7, max: 10, message: '长度在 7 到 10 个字符', trigger: 'blur' }
+                            ],
+                            region: [
+                                { required: true, message: '请选择活动区域', trigger: 'change' }
+                            ],
+                            date1: [
+                                { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+                            ],
+                            date2: [
+                                { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+                            ],
+                            type: [
+                                { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+                            ],
+                            resource: [
+                                { required: true, message: '请选择活动资源', trigger: 'change' }
+                            ],
+                            desc: [
+                                { required: true, message: '请填写活动形式', trigger: 'blur' }
+                            ]
+                    }
+                };
+    },
+    methods: {
+      submitForm(formName) {//formName=ruleForm 表示整个表单
+        this.$refs[formName].validate((valid) => {
+          //TODO:这里表示对form表单进行验证，如果验证通过，那么valid的值是true,校验失败是valid的值是false
+          if (valid) {
+            //TODO:实际开发中我们需要在这里书写axios异步请求代码，将数据传递到后台服务器。然后接收后台响应数据
+            alert('submit!');
+            //省略了return true;可以提交表单 默认是true
+          } else {
+            //校验失败是valid的值是false 
+            console.log('error submit!!');
+            //阻止表单提交
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    }
+    });
+</script>
+
+</html>
