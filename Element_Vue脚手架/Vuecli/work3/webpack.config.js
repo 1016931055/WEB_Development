@@ -1,4 +1,5 @@
 var path = require("path"); // 导入 node.js 中专门操作路径的模块，固定写法
+
 //执行webpack命令的时候会读取到module.exports中的内容
 module.exports = {
     //执行webpack命令的时候,读取入口main.js，由于main.js关联bar.js和logic.js，
